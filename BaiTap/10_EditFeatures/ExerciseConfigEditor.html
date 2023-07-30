@@ -1,0 +1,73 @@
+<html>
+  <meta charset="utf-8" />
+  
+  <title>Configure the Editor widget</title>
+  
+  <link
+    rel="stylesheet"
+    href="https://js.arcgis.com/4.16/esri/themes/light/main.css"
+  />
+  <script src="https://js.arcgis.com/4.16/"></script>
+  
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  
+  </style>
+  
+  <script>
+    require([
+      "esri/WebMap",
+      "esri/views/MapView",
+      "esri/widgets/Editor"
+    ], function(WebMap, MapView, Editor) {
+   
+      let webmap = new WebMap({
+        portalItem: {
+          id: "a061b2cbe5cf4120b038b9f60f12e0e8"
+        }
+      });
+  
+      let view = new MapView({
+        container: "viewDiv",
+        map: webmap
+      });
+  
+      view.when(function(){
+  
+      let layer = view.map.allLayers.find(function(layer){
+          return layer.title === "Utah Fire Stations";
+        });
+  
+      var editor = new Editor({
+        view: view,
+        layerInfos: [{
+          layer: layer,
+         fieldConfig: [
+            {name: , label:  }, //field name and label
+            {name: , label:  },  //field name and label
+            {name: , label:  }], //field name and label
+          enabled:  , // true or false
+          updateEnabled:  }] // true or false
+      });   
+      
+      
+      // Add widget to top-right of the view
+      view.ui.add(editor, "top-right");
+     });
+    });
+  </script>
+  </head>
+  
+  <body>
+  <div id="viewDiv"></div>
+  <div id="editorDiv"></div>
+  </body>
+  </html>
+  

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Apply a manually defined renderer</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.16/"></script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    .esri-legend {
+      background-color: black;
+      color: white;
+      opacity: 0.85;
+    }
+  </style>
+
+  <script>
+    require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/FeatureLayer"
+      ],
+      function(
+        Map, MapView, FeatureLayer
+      ) {
+
+        //Create a unique value renderer to apply to the feature layer
+
+        //Add unique value infos to the renderer.
+
+        //The feature layer to apply the renderer to.
+
+        var farmsLayer = new FeatureLayer({
+          url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/NJ_Farmland_Preservation_Areas/FeatureServer/0",
+          renderer: , //Apply the renderer to the feature layer
+          minScale: 0,
+          maxScale: 0,
+        });
+
+        // Add the layers to the map
+        var map = new Map({
+          basemap: "streets",
+          layers: [farmsLayer]
+        });
+
+        var view = new MapView({
+          container: "viewDiv",
+          map: map,
+          center: [-74.673730, 40.150360],
+          zoom: 13
+        });
+
+      });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>

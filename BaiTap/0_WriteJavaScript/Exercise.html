@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Jackson Hole, Wyoming</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 95%;
+      width: 100%;
+    }
+    #contactDiv {
+        height: 100%;
+        width: 100%;
+        bottom: 10;
+        font-family:Arial, Helvetica, sans-serif;
+        font-size:15px;
+        font-weight: bold;
+    }
+    body{
+        background-color: linen;
+    }
+  </style>
+
+  <!--
+    Link to the ArcGIS API for JavaScript stylesheet
+  -->
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.4/esri/css/main.css">
+
+  <!--
+    Link to the ArcGIS API for JavaScript API library
+  -->
+
+  <script src="https://js.arcgis.com/4.16/"></script>
+
+  <!-- 
+    The script element containing all of the JavaScript functions.
+  -->
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "dojo/domReady!"
+    ], function(Map, MapView) {
+
+      var map = new Map({
+        basemap: "streets"
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        zoom: 15,
+        center: [-110.7599, 43.48000] // longitude, latitude
+      });
+
+    });
+
+    /**
+      The contactInfo function that gets executed when the contactButton is clicked.
+    **/
+
+    function contactInfo(){
+      var info = "";
+      info += "Geographic Information Systems<br>";
+      info += "Jackson Hole, WY<br>";
+      info += "Phone: ###-###-####<br>";
+      
+      //Accessing the infoDiv element and setting it to a variable.
+      var theDiv = document.getElementById("infoDiv");
+      //Setting the content for the infoDiv element to display. 
+      theDiv.innerHTML = info; 
+    }
+
+    /**
+      The eventsInfo function that gets executed when clicking on the a href.
+    **/
+
+    function eventsInfo(){
+        //Creating a variable to hold the HTML table. HTML can be created dynamically using JavaScript.
+        var info = "";
+        info += "<center>";
+        info += "<table border='2'>";
+        info += "<tr><th></th><th></th><th></th></tr>";
+        info += "<tr><td></td><td></td><td></td></tr>";
+        info += "<tr><td></td><td></td><td></td></tr>";
+        info += "<tr><td></td><td></td><td></td></tr>";
+        info += "<tr><td></td><td></td><td></td></tr>";
+        info += "</table>";
+        info += "</center>";
+
+        //Accessing the infoDiv element and setting it to a variable.
+        var theDiv = document.getElementById("infoDiv");
+        //Setting the content for the infoDiv element to display.
+        theDiv.innerHTML = info;
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <!-- 
+    The div element that will be used to display the map.
+  -->
+  <div id="viewDiv"></div>
+ 
+    <!-- 
+    The button used to call the contactInfo JavaScript function.
+    -->
+    <input type="button" id="contactButton" value="Contact Info" onclick="contact()" />
+
+    <!-- 
+    The a href element used to call the ContactInfo function.
+    -->
+
+    <!--<a id="contactLink" href="#" onclick="contactInfo();">Contact Info</a>-->
+
+    <!-- 
+    The a href element used to call the eventsInfo function.
+    -->
+
+    <!--<a id="eventsLink" href="#" onclick=""></a>-->
+    
+     <!-- 
+    The infoDiv div element used to display the contactInfo and eventsInfo.
+    -->
+    
+    <div id="infoDiv"></div>
+</body>
+</html>

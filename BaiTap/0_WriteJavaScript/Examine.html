@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>My First JavaScript Web App</title>
+        <script>
+            function myFunction(){
+                
+                var name;
+                console.log(name);
+
+                var message = 'My first JavaScript web app!!';
+                console.log(typeof(message) + ": " + message);
+
+                var x = true;
+                console.log(typeof(x) + ": " + x);
+
+                var z = 5 + (10 * 10);
+                console.log(typeof(z) + ": " + z);
+
+                var map = {continent:"South America", legend:true, id:5, city:"Buenos Aires"};
+                console.log(typeof(map) + ": " + map.continent + ", " + map.legend + ", " + map.id + "," + map.city);
+
+                var parks = ["Olympic National Park","Odlin County Park","Moran State Park","Washington Municipal Park"];
+                console.log(typeof(parks[0]) + ": " + parks[0]);
+
+                var city = null;
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="Press Me" onclick='myFunction()'/>
+    </body>
+</html>

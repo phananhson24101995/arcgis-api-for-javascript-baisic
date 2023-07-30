@@ -1,0 +1,56 @@
+<html>
+<meta charset="utf-8" />
+
+<title>Implement the Editor widget</title>
+
+<link
+  rel="stylesheet"
+  href="https://js.arcgis.com/4.16/esri/themes/light/main.css"
+/>
+<script src="https://js.arcgis.com/4.16/"></script>
+
+<style>
+  html,
+  body,
+  #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+</style>
+
+<script>
+  require([
+    "esri/WebMap",
+    "esri/views/MapView",
+    "esri/widgets/Editor"
+  ], function(WebMap, MapView, Editor) {
+ 
+    let webmap = new WebMap({
+      portalItem: {
+        id: "a061b2cbe5cf4120b038b9f60f12e0e8"
+      }
+    });
+
+    let view = new MapView({
+      container: "viewDiv",
+      map: webmap
+    });
+
+      let editor = new Editor({
+       
+      });
+
+      // Add widget to top-right of the view
+      view.ui.add(editor, );
+  });
+</script>
+</head>
+
+<body>
+<div id="viewDiv"></div>
+<div id="editorDiv"></div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
+
+        <title></title>
+
+        <link
+            rel="stylesheet"
+            href="https://js.arcgis.com/4.16/esri/themes/light/main.css"
+            />
+
+        <script src="https://js.arcgis.com/4.16/"></script>
+        <script>
+            require(["esri/Map", "esri/views/MapView"], function(Map, MapView){
+                var map = new Map({
+                    basemap: "streets"
+                  });
+
+                  var view = new MapView({
+                    container: "viewDiv",
+                    map: map,
+                    zoom: 4,
+                    center: [112,45]
+                   });
+                 });
+        </script>
+
+        <!--
+            The web page style selectors.
+        -->
+        <style>
+            body{
+                
+            }
+            h1{
+               font-family:Tahoma;
+               font-size:large;
+               font-weight:bold;
+               color:blue; 
+            }
+            p{
+                font-family:Arial;
+                font-size:smaller;
+                font-style:italic;
+                color:black;
+            }
+            ul{
+               font-family:Arial;
+               font-size:small;
+               color:black; 
+            }
+            img{
+               width: 400px;
+               height: 270px;
+            }
+        </style>
+    </head>
+
+    <!--
+            The web page body.
+        -->
+    <body>
+       <!--
+            The image element.
+        --> 
+        <img />
+        <!--
+            The header element.
+        -->        
+        <h1></h1>
+        <!--
+            The paragraph element.
+        -->
+        <p></p>
+        
+        <!--
+            The unordered list element.
+        -->
+        <ul>
+             <!--
+            The list items.
+            -->
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <div id="viewDiv"></div>
+        
+        
+    </body>
+</html>

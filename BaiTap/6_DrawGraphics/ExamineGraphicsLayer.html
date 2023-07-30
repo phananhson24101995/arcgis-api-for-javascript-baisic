@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Examine: Adding graphics to a layer</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.16/"></script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <script>
+
+    require(["esri/Map",
+        "esri/views/SceneView",
+        "esri/layers/GraphicsLayer", 
+        "esri/Graphic"
+        ], function(Map, SceneView, GraphicsLayer, Graphic){
+        
+            //Construct a Map object
+            var map = new Map({
+                basemap: "topo",
+                ground: "world-elevation"
+            });
+
+            
+            //Construct a SceneView object
+            var view = new SceneView({
+                container: "viewDiv",
+                map: map,
+                camera: {
+                    position: [-122.89, 48.3200, 15000],
+                    tilt: 50
+                }               
+            });
+
+            //Construct a point object
+            var point1 = {
+                type:"point",
+                longitude:-122.8836,
+                latitude:48.570719
+            };
+
+            //Construct a point object
+            var point2 = {
+                type:"point",
+                longitude:-122.915405,
+                latitude:48.524162
+            };
+
+            //Construct a point object
+            var point3 = {
+                type:"point",
+                longitude:-122.814874,
+                latitude:48.430720
+            };
+
+            //Construct a marker symbol object
+            var markerSymbol = {
+                type: "simple-marker",
+                color:[226,119,40],
+                outline:{
+                    color:[255,255,255],
+                    width:2
+                }
+            };  
+        
+
+            //Construct a Graphic object
+            var graphic1 = new Graphic({
+                geometry:point1,
+                symbol: markerSymbol 
+            });
+
+            //Construct a Graphic object
+            var graphic2 = new Graphic({
+                geometry:point2,
+                symbol: markerSymbol
+            });
+
+            //Construct a Graphic object
+            var graphic3 = new Graphic({
+                geometry:point3,
+                symbol: markerSymbol
+            });
+
+            // Construct a GraphicsLayer with Graphic objects
+            var layer = new GraphicsLayer({
+                graphics: [graphic1, graphic2, graphic3]
+            });
+        
+
+            // Add GraphicsLayer to Map object
+            map.add(layer);
+});
+
+ </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>

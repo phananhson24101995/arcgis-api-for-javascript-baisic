@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <!--
+            The web page title.
+        -->
+        <title>My First Web App</title>
+        <!--
+            The web page style selectors.
+        -->
+        <style>
+            body{
+                color:blue;
+                font-size:25px;
+                background-color:linen;
+            }
+        </style>
+        <script>
+            function myFunction(){
+                var message = 'My first web app!!';
+                document.getElementById("examine").innerHTML = message;
+            }
+        </script>
+    </head>
+    <!--
+            The web page body.
+        -->
+    <body>
+        <!--
+            The paragraph element.
+        -->
+        <p id="examine"></p>
+        <!--
+            The div element.
+        -->
+        <div id="div1"></div>
+        <!--
+            The input element.
+        -->
+        <input type="button" value="Press Me" onclick='myFunction()'/>
+    </body>
+</html>

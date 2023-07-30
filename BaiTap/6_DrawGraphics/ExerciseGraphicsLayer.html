@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Exercise: Adding graphics to a layer</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.16/"></script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <script>
+
+    require(["esri/Map",
+        "esri/views/MapView",
+        "esri/layers/GraphicsLayer", 
+        "esri/Graphic"
+        ], function(Map, MapView, GraphicsLayer, Graphic){
+        
+            //Construct a Map object
+            var map = new Map({
+                basemap: "topo",
+                ground: "world-elevation"
+            });
+
+            
+            //Construct a MapView object
+            var view = new MapView({
+                container: "viewDiv",
+                map: map,             
+            });
+
+            //Construct a point object
+
+
+            //Construct a simple marker symbol
+            
+
+            //Construct a line object
+
+
+            //Construct a simple line symbol
+
+
+            //Construct a polygon object
+
+
+            //Construct a simple fill symbol
+        
+
+            //Construct a Graphic object for the point
+            var graphic1 = new Graphic({
+                
+            });
+
+            //Construct a Graphic object for the line
+            var graphic2 = new Graphic({
+                
+            });
+
+            //Construct a Graphic object for the polygon
+            var graphic3 = new Graphic({
+                
+            });
+
+            // Construct a GraphicsLayer with Graphic objects
+            var layer = new GraphicsLayer({
+                
+            });
+        
+
+            // Add GraphicsLayer to Map object
+            map.add(layer);
+});
+
+ </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
