@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars4</title>
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.27/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.27/"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header__left">
+                <div class="logo">
+                    <img src="./assets/images/logo.svg" alt="">
+                </div>
+            </div>
+            <div class="header__right">
+                <div class="cart">
+                    <img src="./assets/images/cart.svg" alt="">
+                    <span class="cart__quantity">0</span>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="map">
+                <div id="viewDiv"></div>
+            </div>
+            <div class="panel">
+                <div class="panel__container">
+                    <div class="panel__header">
+                        <div class="panel__header--left">
+                            <span class="panel__header--label">Cart</span>
+                            <span class="panel__header--quantity">0</span>
+                        </div>
+                        <div class="panel__header--right">
+                            <div class="btn-clear">Clear cart</div>
+                        </div>
+                    </div>
+
+                    <div class="dashedLine"></div>
+                    <div class="panel__content">
+                        <!-- Khi không có trong giỏ hàng -->
+                        <div class="cart__empty">
+                            <div class="cart__empty--row">
+                                <div class="cart__empty--icon">
+                                    <img src="./assets/images/cart.svg" alt="">
+                                </div>
+                                <div class="cart__empty--label">
+                                    YOUR CART IS EMPTY.
+                                </div>
+                            </div>
+                            <div class="cart__empty--row">
+                                <div class="cart__empty--label">
+                                    YOUR CART IS EMPTY.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Khi có trong giỏ hàng -->
+                        <!-- Sản phẩm trong giỏ hàng -->
+                        <div class="cart__products">
+                            <div class="cart__products--header">
+                                <div class="products__header--label">
+                                    Landplots
+                                </div>
+                                <div class="products__header--id">
+                                    #28595
+                                </div>
+                            </div>
+
+                            <div class="dashedLine"></div>
+                            <div class="cart__products--content">
+                                <div class="products__info">
+                                    <span class="label">Total</span>
+                                    <span class="number">10$</span>
+                                </div>
+                                <div class="products__btn">
+                                    Buy
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sabr phẩm đã mua -->
+                        <div class="cart__products">
+                            <div class="cart__product--item">
+                                <div class="cart__order">
+                                    <div class="cart__order--left">
+                                        ORDER NO.1
+                                    </div>
+                                   
+                                    <div class="cart__order--right">
+                                        <div class="cart__order--label">
+                                            <div class="label__row">Waiting for payment</div>
+                                            <div class="label__row">Reservation cancelled.</div>
+                                        </div>
+                                        <div class="cart__order--icon">
+                                            <img src="./assets/images/trash-bin.646d5187.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart__products--header">
+                                    <div class="products__header--label">
+                                        Landplots
+                                    </div>
+                                    <div class="products__header--id">
+                                        <span>#29155</span>
+                                        <span>#29155</span>
+                                        <span>#29155</span>
+                                    </div>
+                                </div>
+    
+                                <div class="dashedLine"></div>
+                                <div class="cart__products--content">
+                                    <div class="products__info">
+                                        <span class="label">Total</span>
+                                        <span class="number">10$</span>
+                                    </div>
+                                    <div class="products__btn">
+                                        CONNECT WALLET
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
