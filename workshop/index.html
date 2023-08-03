@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="https://js.arcgis.com/4.27/esri/themes/light/main.css">
     <script src="https://js.arcgis.com/4.27/"></script>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -20,7 +22,7 @@
             <div class="header__right">
                 <div class="cart">
                     <img src="./assets/images/cart.svg" alt="">
-                    <span class="cart__quantity">0</span>
+                    <span class="cart__quantity jsCartQuantity">0</span>
                 </div>
             </div>
         </div>
@@ -33,17 +35,17 @@
                     <div class="panel__header">
                         <div class="panel__header--left">
                             <span class="panel__header--label">Cart</span>
-                            <span class="panel__header--quantity">0</span>
+                            <span class="panel__header--quantity jsCartQuantity">0</span>
                         </div>
                         <div class="panel__header--right">
-                            <div class="btn-clear">Clear cart</div>
+                            <div onclick="handleClearCart()" class="btn-clear">Clear cart</div>
                         </div>
                     </div>
 
                     <div class="dashedLine"></div>
                     <div class="panel__content">
                         <!-- Khi không có trong giỏ hàng -->
-                        <div class="cart__empty">
+                        <div id="idCartEmpty" class="cart__empty">
                             <div class="cart__empty--row">
                                 <div class="cart__empty--icon">
                                     <img src="./assets/images/cart.svg" alt="">
@@ -54,43 +56,41 @@
                             </div>
                             <div class="cart__empty--row">
                                 <div class="cart__empty--label">
-                                    YOUR CART IS EMPTY.
+                                    Select landplot on the map.
                                 </div>
                             </div>
                         </div>
 
                         <!-- Khi có trong giỏ hàng -->
                         <!-- Sản phẩm trong giỏ hàng -->
-                        <div class="cart__products">
+                        <div id="idCartProducts" class="cart__products">
                             <div class="cart__products--header">
                                 <div class="products__header--label">
                                     Landplots
                                 </div>
-                                <div class="products__header--id">
-                                    #28595
-                                </div>
+                                <div id="cartLandplots" class="products__header--id"></div>
                             </div>
 
                             <div class="dashedLine"></div>
                             <div class="cart__products--content">
                                 <div class="products__info">
                                     <span class="label">Total</span>
-                                    <span class="number">10$</span>
+                                    <span class="number"><span id="idTotalPrice"></span> $</span>
                                 </div>
-                                <div class="products__btn">
+                                <div onclick="handleClickBuy()" class="products__btn">
                                     Buy
                                 </div>
                             </div>
                         </div>
 
                         <!-- Sabr phẩm đã mua -->
-                        <div class="cart__products">
-                            <div class="cart__product--item">
+                        <div id="orderProductList" class="cart__products">
+                            <!-- <div class="cart__product--item">
                                 <div class="cart__order">
                                     <div class="cart__order--left">
                                         ORDER NO.1
                                     </div>
-                                   
+
                                     <div class="cart__order--right">
                                         <div class="cart__order--label">
                                             <div class="label__row">Waiting for payment</div>
@@ -106,29 +106,68 @@
                                         Landplots
                                     </div>
                                     <div class="products__header--id">
-                                        <span>#29155</span>
-                                        <span>#29155</span>
+                                        <span>#29155</span>,
+                                        <span>#29155</span>,
                                         <span>#29155</span>
                                     </div>
                                 </div>
-    
+
                                 <div class="dashedLine"></div>
                                 <div class="cart__products--content">
                                     <div class="products__info">
                                         <span class="label">Total</span>
-                                        <span class="number">10$</span>
+                                        <span class="number">10 $</span>
                                     </div>
                                     <div class="products__btn">
                                         CONNECT WALLET
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="contentInfo" style="display: none;">
+        <div class="info__rowheader">
+            <div onclick="handleClosePopup()" role="button" tabindex="0" class="esri-popup__button" aria-label="Close"
+                title="Close"><span aria-hidden="true" class="esri-popup__icon esri-icon-close"></span></div>
+        </div>
+        <div class="info__container">
+            <div class="info__left">
+                <img id="imgInfo" src="https://mars4-cdn.fra1.cdn.digitaloceanspaces.com/33852.png" alt="">
+            </div>
+            <div class="info__right">
+                <div class="info__header">
+                    <div id="infoId" class="info__header--title"></div>
+                    <div class="info__header--subtitle">No. <span id="infoSubId"></span></div>
+                </div>
+
+                <!-- Hiển thị khi chưa mua -->
+                <div id="idProductDisplay">
+                    <div class="info__price">
+                        <div class="info__price--label">Price:</div>
+                        <div class="info__price--value"><span id="infoPrice"></span> $</div>
+                    </div>
+
+                    <div class="info__available">AVAILABLE</div>
+                    <div id="btnAddToCart" class="info__btn" onclick="handleAddToCart()">
+                        Add to cart
+                    </div>
+                </div>
+                <!-- Hiển thị khi đã mua -->
+                <div id="idCompletlyPayment">
+                    <div class="completlyPayment__lable">OWNER</div>
+                    <div id="idValueOwner" class="completlyPayment__value">0x74d795284a5951500ec4E4EcE34907Cf18ebe89D
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/init.js"></script>
     <script src="./assets/js/main.js"></script>
 </body>
+
 </html>
