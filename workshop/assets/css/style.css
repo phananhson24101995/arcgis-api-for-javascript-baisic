@@ -132,7 +132,11 @@
 .cart__order {}
 
 .cart__products {
-	display: none;
+
+}
+
+#idCartProducts {
+    display: none;
 }
 
 .cart__products--header {
